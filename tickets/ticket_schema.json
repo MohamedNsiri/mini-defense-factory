@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["asset", "cve", "conclusion", "affected", "expose", "exploitable", "score", "evidence", "action", "responsable", "fenetre_maintenance"],
+  "properties": {
+    "asset": {"type": "string"},
+    "cve": {"type": "string"},
+    "conclusion": {"enum": ["urgent", "a_planifier", "a_documenter", "aucune_action"]},
+    "affected": {"type": "boolean"},
+    "expose": {"type": "boolean"},
+    "exploitable": {"type": ["boolean", "null"]},
+    "kev": {"type": "boolean"},
+    "epss": {"type": "number"},
+    "score": {"type": "integer", "minimum": 0, "maximum": 100},
+    "evidence": {"type": "array", "items": {"type": "string"}},
+    "action": {"type": "string"},
+    "responsable": {"type": "string"},
+    "fenetre_maintenance": {"type": "string"},
+    "confiance": {"type": "string"}
+  }
+}

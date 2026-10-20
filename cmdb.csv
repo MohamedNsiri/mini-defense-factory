@@ -1,0 +1,6 @@
+asset,ip,zone,service,version,criticite,responsable,fenetre_maintenance
+web-front-01,172.20.0.10,DMZ,Apache HTTP Server,2.4.49,haute,equipe-web,dimanche 02h-04h
+web-legacy-01,172.20.0.11,DMZ,Apache HTTP Server,2.4.49,moyenne,equipe-web,samedi 22h-00h
+web-patched-01,172.20.0.12,DMZ,Apache HTTP Server,2.4.51,moyenne,equipe-web,dimanche 02h-04h
+app-01,172.21.0.10,INTERNE,Apache HTTP Server,2.4.49,haute,equipe-applicative,mercredi 21h-23h
+db-01,172.21.0.11,INTERNE,PostgreSQL,16,critique,equipe-donnees,mercredi 21h-23h

@@ -1,0 +1,9 @@
+{
+  "alerte": "CVE-2021-41773",
+  "cibles": {
+    "web-front-01":   {"conclusion": "urgent",       "expose": true,  "exploitable": true},
+    "app-01":         {"conclusion": "a_planifier",  "expose": false, "exploitable": null},
+    "web-legacy-01":  {"conclusion": "a_documenter", "expose": true,  "exploitable": false},
+    "web-patched-01": {"conclusion": "aucune_action","expose": true,  "exploitable": false}
+  }
+}

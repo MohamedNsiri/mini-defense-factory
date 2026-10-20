@@ -1,0 +1,8 @@
+results/*
+!results/.gitkeep
+tickets/*.json
+tickets/*.md
+!tickets/ticket_template.md
+!tickets/ticket_schema.json
+__pycache__/
+*.pyc

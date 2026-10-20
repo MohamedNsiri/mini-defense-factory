@@ -1,0 +1,77 @@
+# Mini Defense Factory - base lab (levels 1 and 2)
+# Both networks are "internal: true": containers can talk to each other
+# but nothing is reachable from outside the host and no outbound Internet.
+name: mini-defense-factory
+
+networks:
+  dmz:
+    name: mdf_dmz
+    internal: true
+    ipam:
+      config:
+        - subnet: 172.20.0.0/24
+  interne:
+    name: mdf_interne
+    internal: true
+    ipam:
+      config:
+        - subnet: 172.21.0.0/24
+
+services:
+  # ---- Observer: attacker's point of view, DMZ ONLY ----
+  observateur:
+    build: ./observer
+    container_name: observateur
+    hostname: observateur
+    networks:
+      dmz:
+        ipv4_address: 172.20.0.5
+    volumes:
+      - ./results:/results
+
+  # ---- ROLE "URGENT": vulnerable Apache 2.4.49, exposed in DMZ ----
+  web-front-01:
+    build: ./vulhub-cve-2021-41773
+    container_name: web-front-01
+    hostname: web-front-01
+    networks:
+      dmz:
+        ipv4_address: 172.20.0.10
+
+  # ---- ROLE "A DOCUMENTER": same vulnerable version, but icons
+  # ---- directory access is re-disabled (built FROM web-front-01) ----
+  web-legacy-01:
+    build: ./vulhub-legacy-disabled
+    container_name: web-legacy-01
+    hostname: web-legacy-01
+    networks:
+      dmz:
+        ipv4_address: 172.20.0.11
+
+  # ---- ROLE "AUCUNE ACTION": patched version ----
+  web-patched-01:
+    image: httpd:2.4.51
+    container_name: web-patched-01
+    hostname: web-patched-01
+    networks:
+      dmz:
+        ipv4_address: 172.20.0.12
+
+  # ---- ROLE "A PLANIFIER": same vulnerable service, INTERNAL zone only ----
+  app-01:
+    build: ./vulhub-cve-2021-41773
+    container_name: app-01
+    hostname: app-01
+    networks:
+      interne:
+        ipv4_address: 172.21.0.10
+
+  db-01:
+    image: postgres:16-alpine
+    container_name: db-01
+    hostname: db-01
+    environment:
+      POSTGRES_PASSWORD: lab-only-password
+    networks:
+      interne:
+        ipv4_address: 172.21.0.11

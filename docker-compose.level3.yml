@@ -1,0 +1,10 @@
+# Level 3 add-on. Start AFTER the base lab:
+#   docker compose -f docker-compose.yml -f docker-compose.level3.yml up -d --build
+services:
+  code-maison:
+    build: ./code-maison
+    container_name: code-maison
+    hostname: code-maison
+    networks:
+      dmz:
+        ipv4_address: 172.20.0.20
