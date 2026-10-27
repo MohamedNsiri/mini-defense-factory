@@ -1,0 +1,11 @@
+{
+  "id": "ALERTE-001",
+  "cve": "CVE-2021-41773",
+  "produit": "apache httpd",
+  "versions_affectees": "2.4.49",
+  "source": "CERT-FR — avis de sécurité",
+  "kev": true,
+  "epss": 0.94,
+  "resume": "Traversée de chemin / divulgation de fichiers.",
+  "date_instantane": "2026-09-01"
+}

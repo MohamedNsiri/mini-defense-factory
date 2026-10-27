@@ -1,0 +1,6 @@
+nom,ip,zone,service,version_declaree,environnement,criticite,equipe,contact,fenetre_maintenance,dependances
+web-front-01,172.20.0.10,dmz,apache httpd,2.4.49,prod,4,web,web-ops@lab.local,mardi 22:00-02:00,db-01
+web-legacy-01,172.20.0.11,dmz,apache httpd,2.4.49,prod,2,web,web-ops@lab.local,samedi 22:00-00:00,-
+web-patched-01,172.20.0.12,dmz,apache httpd,2.4.51,prod,2,web,web-ops@lab.local,dimanche 02:00-04:00,-
+app-01,172.21.0.10,interne,apache httpd,2.4.49,prod,3,app,app-ops@lab.local,mercredi 21:00-23:00,db-01
+db-01,172.21.0.11,interne,postgres,16,prod,4,data,data-ops@lab.local,dimanche 03:00-05:00,-
